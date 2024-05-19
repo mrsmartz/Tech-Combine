@@ -3,6 +3,7 @@
 This project contains test automation scripts for the e-commerce website using Robot Framework. The tests cover various functionalities such as product search, adding products to the cart,  and pre-checkout.
 
 ## Project Structure
+```
 ├── README.md
 ├── keywords
 │   ├── pages
@@ -27,6 +28,7 @@ This project contains test automation scripts for the e-commerce website using R
 ├── testscript
 │   └── web
 │       └── functionality.robot
+```
 
 ## Prerequisites
 Ensure you have the following installed on your system:
