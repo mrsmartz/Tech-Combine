@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0 (Python 3.7.6 on win32)" generated="20240519 17:35:51.389" rpa="false" schemaversion="3">
+<suite id="s1" name="Functionality" source="C:\Users\User\Desktop\QA_Test\Tech-Combine\Tech-Combine\testscript\web\functionality.robot">
+<kw name="Open Browser and Maximize" library="common" type="SETUP">
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Open the BROWSERand maximize</doc>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<arg>executable_path=${driver_path}</arg>
+<arg>options=add_argument("--disable-notifications")</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20240519 17:35:51.629" level="INFO">Opening browser 'chrome' to base url 'https://www.bnn.in.th/th'.</msg>
+<status status="PASS" starttime="20240519 17:35:51.628" endtime="20240519 17:35:55.361"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20240519 17:35:55.361" endtime="20240519 17:35:55.456"/>
+</kw>
+<status status="PASS" starttime="20240519 17:35:51.627" endtime="20240519 17:35:55.457"/>
+</kw>
+<test id="s1-t1" name="Verify E-commerce Functionality (BNN)" line="10">
+<kw name="Handle Ads and Cookies" library="common">
+<doc>Close any ads and accept cookie consent pop-ups</doc>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<arg>Close Ads</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<kw name="Close Ads" library="common">
+<doc>Close the ad pop-up</doc>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${CLOSE_BUTTON_ADS}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20240519 17:35:55.511" endtime="20240519 17:35:59.757"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${CLOSE_BUTTON_ADS}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20240519 17:35:59.758" level="INFO">Clicking element '//span[contains(@class, 'close-button')]'.</msg>
+<status status="PASS" starttime="20240519 17:35:59.757" endtime="20240519 17:35:59.879"/>
+</kw>
+<status status="PASS" starttime="20240519 17:35:55.506" endtime="20240519 17:35:59.879"/>
+</kw>
+<status status="PASS" starttime="20240519 17:35:55.502" endtime="20240519 17:35:59.879"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<arg>Accept Cookies</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<kw name="Accept Cookies" library="common">
+<doc>Accept cookie consent</doc>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${ACCEPT_BUTTON_COOKIES_BAR}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20240519 17:35:59.882" endtime="20240519 17:35:59.926"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${ACCEPT_BUTTON_COOKIES_BAR}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20240519 17:35:59.927" level="INFO">Clicking element '//div[@class="the-pdpa-consent-bar"]//button[@class="btn -primary btn-accept" and contains(text(), "ให้ความยินยอมทั้งหมด")]'.</msg>
+<status status="PASS" starttime="20240519 17:35:59.926" endtime="20240519 17:36:00.043"/>
+</kw>
+<status status="PASS" starttime="20240519 17:35:59.882" endtime="20240519 17:36:00.044"/>
+</kw>
+<status status="PASS" starttime="20240519 17:35:59.880" endtime="20240519 17:36:00.044"/>
+</kw>
+<status status="PASS" starttime="20240519 17:35:55.495" endtime="20240519 17:36:00.044"/>
+</kw>
+<kw name="Search Product" library="main">
+<arg>Apple MacBook Pro 14</arg>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${INPUT_SEARCH}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20240519 17:36:00.047" endtime="20240519 17:36:00.091"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${INPUT_SEARCH}</arg>
+<arg>${PRODUCT_NAME}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20240519 17:36:00.093" level="INFO">Typing text 'Apple MacBook Pro 14' into text field '//div[@class="search-bar"]//input[@type="search" and contains(@placeholder, "ค้นหาสินค้าที่ต้องการที่นี่")]'.</msg>
+<status status="PASS" starttime="20240519 17:36:00.091" endtime="20240519 17:36:00.344"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${BUTTON_SEARCH}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20240519 17:36:00.345" level="INFO">Clicking element '//div[@class="search-bar"]//button[@class="btn -primary btn-search"]'.</msg>
+<status status="PASS" starttime="20240519 17:36:00.345" endtime="20240519 17:36:00.484"/>
+</kw>
+<status status="PASS" starttime="20240519 17:36:00.045" endtime="20240519 17:36:00.484"/>
+</kw>
+<kw name="Add Products to Cart" library="product_detail">
+<doc>Add products to the cart</doc>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${COUNT_ITEMS}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20240519 17:36:00.487" endtime="20240519 17:36:01.782"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${TOTAL_LIST}</var>
+<arg>${COUNT_ITEMS}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20240519 17:36:01.824" level="INFO">${TOTAL_LIST} = 12 รายการ</msg>
+<status status="PASS" starttime="20240519 17:36:01.782" endtime="20240519 17:36:01.824"/>
+</kw>
+<kw name="Remove String" library="String">
+<var>${NUMBER_LIST}</var>
+<arg>${TOTAL_LIST}</arg>
+<arg>รายการ</arg>
+<doc>Removes all ``removables`` from the given ``string``.</doc>
+<msg timestamp="20240519 17:36:01.826" level="INFO">${NUMBER_LIST} = 12 </msg>
+<status status="PASS" starttime="20240519 17:36:01.825" endtime="20240519 17:36:01.826"/>
+</kw>
+<kw name="Strip String" library="String">
+<var>${RESULT_LIST}</var>
+<arg>${NUMBER_LIST}</arg>
+<doc>Remove leading and/or trailing whitespaces from the given string.</doc>
+<msg timestamp="20240519 17:36:01.828" level="INFO">${RESULT_LIST} = 12</msg>
+<status status="PASS" starttime="20240519 17:36:01.827" endtime="20240519 17:36:01.828"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>${RESULT_LIST} &gt;= 1</arg>
+<arg>Select Product</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Select Product" library="search_product">
+<doc>Search for a product using its name</doc>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${FOUND_ITEM}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20240519 17:36:01.831" endtime="20240519 17:36:01.885"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${FOUND_ITEM}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20240519 17:36:01.886" level="INFO">Clicking element '(//div[@class="product-list"]//div[@class="product-item-top"])[1]'.</msg>
+<status status="PASS" starttime="20240519 17:36:01.885" endtime="20240519 17:36:02.054"/>
+</kw>
+<status status="PASS" starttime="20240519 17:36:01.830" endtime="20240519 17:36:02.055"/>
+</kw>
+<status status="PASS" starttime="20240519 17:36:01.829" endtime="20240519 17:36:02.055"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>${RESULT_LIST} &lt; 1</arg>
+<arg>Fail</arg>
+<arg>Not found product</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20240519 17:36:02.056" endtime="20240519 17:36:02.057"/>
+</kw>
+<status status="PASS" starttime="20240519 17:36:00.485" endtime="20240519 17:36:02.057"/>
+</kw>
+<kw name="Adjust Cart Products" library="product_detail">
+<arg>3</arg>
+<doc>Adjust the quantity of products in the cart</doc>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${PRODUCT_QUANTITY}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20240519 17:36:02.061" level="INFO">${PRODUCT_QUANTITY} = 3</msg>
+<status status="PASS" starttime="20240519 17:36:02.060" endtime="20240519 17:36:02.061"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${INPUT_PRODUCT_QUANTITY}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20240519 17:36:02.061" endtime="20240519 17:36:02.861"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${INPUT_PRODUCT_QUANTITY}</arg>
+<arg>${PRODUCT_QUANTITY}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20240519 17:36:02.863" level="INFO">Typing text '3' into text field '//input[@id="input0"]'.</msg>
+<status status="PASS" starttime="20240519 17:36:02.861" endtime="20240519 17:36:03.392"/>
+</kw>
+<kw name="Remove Bath Sign and Comma" library="common">
+<var>${PRODUCT_PRICE}</var>
+<arg>${SELLING_PRICE}</arg>
+<doc>Remove currency sign and commas from a string</doc>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${price_bath}</var>
+<arg>${locator}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20240519 17:36:03.430" level="INFO">${price_bath} = ฿66,900</msg>
+<status status="PASS" starttime="20240519 17:36:03.393" endtime="20240519 17:36:03.430"/>
+</kw>
+<kw name="Remove String" library="String">
+<var>${price_number}</var>
+<arg>${price_bath}</arg>
+<arg>฿</arg>
+<doc>Removes all ``removables`` from the given ``string``.</doc>
+<msg timestamp="20240519 17:36:03.431" level="INFO">${price_number} = 66,900</msg>
+<status status="PASS" starttime="20240519 17:36:03.430" endtime="20240519 17:36:03.431"/>
+</kw>
+<kw name="Set Variable If" library="BuiltIn">
+<var>${price}</var>
+<arg>'${price_number}' != '${price_number.replace(",", "")}'</arg>
+<arg>${price_number.replace(",", "")}</arg>
+<arg>${price_number}</arg>
+<doc>Sets variable based on the given condition.</doc>
+<msg timestamp="20240519 17:36:03.436" level="INFO">${price} = 66900</msg>
+<status status="PASS" starttime="20240519 17:36:03.431" endtime="20240519 17:36:03.436"/>
+</kw>
+<msg timestamp="20240519 17:36:03.437" level="INFO">${PRODUCT_PRICE} = 66900</msg>
+<status status="PASS" starttime="20240519 17:36:03.392" endtime="20240519 17:36:03.437"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${PRODUCT_PRICE}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20240519 17:36:03.438" level="INFO">${PRODUCT_PRICE} = 66900</msg>
+<status status="PASS" starttime="20240519 17:36:03.437" endtime="20240519 17:36:03.438"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${ฺBUTTON_ADD_TO_CART}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20240519 17:36:03.440" level="INFO">Clicking element '//button[contains(@class, 'btn-add-to-cart') and contains(text(), "หยิบใส่ตะกร้า")]'.</msg>
+<status status="PASS" starttime="20240519 17:36:03.438" endtime="20240519 17:36:03.623"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${MODAL_TITLE}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20240519 17:36:03.624" endtime="20240519 17:36:05.999"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${msg_result}</var>
+<arg>${MODAL_TITLE}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20240519 17:36:06.035" level="INFO">${msg_result} = สำเร็จ</msg>
+<status status="PASS" starttime="20240519 17:36:06.000" endtime="20240519 17:36:06.035"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${msg_result}' == 'สำเร็จ'</arg>
+<arg>Click Element</arg>
+<arg>${MODAL_CLOSE}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${MODAL_CLOSE}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20240519 17:36:06.037" level="INFO">Clicking element '//div[@class="modal-title"]//div[@class="right"]'.</msg>
+<status status="PASS" starttime="20240519 17:36:06.037" endtime="20240519 17:36:06.147"/>
+</kw>
+<status status="PASS" starttime="20240519 17:36:06.036" endtime="20240519 17:36:06.147"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${msg_result}' != 'สำเร็จ'</arg>
+<arg>Fail</arg>
+<arg>Unable to add products</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20240519 17:36:06.148" endtime="20240519 17:36:06.148"/>
+</kw>
+<status status="PASS" starttime="20240519 17:36:02.058" endtime="20240519 17:36:06.148"/>
+</kw>
+<kw name="Click Cart Icon" library="main">
+<doc>Click on the cart icon to view the cart</doc>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${ICON_CART}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20240519 17:36:06.150" endtime="20240519 17:36:06.268"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${ICON_CART}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20240519 17:36:06.269" level="INFO">Clicking element '//div[@class="cart"]'.</msg>
+<status status="PASS" starttime="20240519 17:36:06.268" endtime="20240519 17:36:06.496"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${BUTTON_GO_TO_CART}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20240519 17:36:06.496" endtime="20240519 17:36:06.798"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${BUTTON_GO_TO_CART}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20240519 17:36:06.800" level="INFO">Clicking element '//footer[@class="footer"]//button[@class="btn -primary" and contains(text(), "ไปที่ตะกร้า")]'.</msg>
+<status status="PASS" starttime="20240519 17:36:06.798" endtime="20240519 17:36:06.885"/>
+</kw>
+<status status="PASS" starttime="20240519 17:36:06.149" endtime="20240519 17:36:06.886"/>
+</kw>
+<kw name="Validate Cart Total" library="cart">
+<doc>Validate the total price of the cart</doc>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${PRICE_ESTIMATED}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20240519 17:36:06.888" endtime="20240519 17:36:07.512"/>
+</kw>
+<kw name="Remove Bath Sign and Comma" library="common">
+<var>${TOTAL_PRICE}</var>
+<arg>${PRICE_ESTIMATED}</arg>
+<doc>Remove currency sign and commas from a string</doc>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${price_bath}</var>
+<arg>${locator}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20240519 17:36:07.568" level="INFO">${price_bath} = ฿200,700</msg>
+<status status="PASS" starttime="20240519 17:36:07.514" endtime="20240519 17:36:07.568"/>
+</kw>
+<kw name="Remove String" library="String">
+<var>${price_number}</var>
+<arg>${price_bath}</arg>
+<arg>฿</arg>
+<doc>Removes all ``removables`` from the given ``string``.</doc>
+<msg timestamp="20240519 17:36:07.568" level="INFO">${price_number} = 200,700</msg>
+<status status="PASS" starttime="20240519 17:36:07.568" endtime="20240519 17:36:07.569"/>
+</kw>
+<kw name="Set Variable If" library="BuiltIn">
+<var>${price}</var>
+<arg>'${price_number}' != '${price_number.replace(",", "")}'</arg>
+<arg>${price_number.replace(",", "")}</arg>
+<arg>${price_number}</arg>
+<doc>Sets variable based on the given condition.</doc>
+<msg timestamp="20240519 17:36:07.571" level="INFO">${price} = 200700</msg>
+<status status="PASS" starttime="20240519 17:36:07.569" endtime="20240519 17:36:07.571"/>
+</kw>
+<msg timestamp="20240519 17:36:07.571" level="INFO">${TOTAL_PRICE} = 200700</msg>
+<status status="PASS" starttime="20240519 17:36:07.513" endtime="20240519 17:36:07.571"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${RESULT}</var>
+<arg>${PRODUCT_PRICE} * ${PRODUCT_QUANTITY}</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20240519 17:36:07.572" level="INFO">${RESULT} = 200700</msg>
+<status status="PASS" starttime="20240519 17:36:07.571" endtime="20240519 17:36:07.572"/>
+</kw>
+<kw name="Should Be Equal As Numbers" library="BuiltIn">
+<arg>${RESULT}</arg>
+<arg>${TOTAL_PRICE}</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<msg timestamp="20240519 17:36:07.572" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<status status="PASS" starttime="20240519 17:36:07.572" endtime="20240519 17:36:07.572"/>
+</kw>
+<status status="PASS" starttime="20240519 17:36:06.886" endtime="20240519 17:36:07.574"/>
+</kw>
+<status status="PASS" starttime="20240519 17:35:55.459" endtime="20240519 17:36:07.574"/>
+</test>
+<kw name="Close Browser" library="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20240519 17:36:07.579" endtime="20240519 17:36:10.376"/>
+</kw>
+<status status="PASS" starttime="20240519 17:35:51.391" endtime="20240519 17:36:10.376"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Functionality">Functionality</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
